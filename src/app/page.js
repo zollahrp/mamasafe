@@ -8,6 +8,7 @@ import Navbar from "@/components/landing/Navbar";
 import Tentang from "@/components/landing/Tentang";
 import Pendamping from "@/components/landing/Pendampingan";
 import Fitur from "@/components/landing/Fitur";
+import FAQ from "@/components/landing/FAQ";
 
 import Footer from "@/components/landing/Footer";
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Tentang />
       <Pendamping />
       <Fitur />
+      <FAQ />
 
       <Footer />
     </div>

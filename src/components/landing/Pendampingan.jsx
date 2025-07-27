@@ -29,7 +29,7 @@ export default function Pendamping() {
   return (
     <section
       id="pendamping"
-      className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-16"
+      className="w-full max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-16"
     >
       <motion.div
         className="mb-0"

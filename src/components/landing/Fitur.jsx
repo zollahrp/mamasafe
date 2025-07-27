@@ -28,7 +28,7 @@ const fitur = [
 
 export default function FiturUtama() {
     return (
-        <section id="fitur" className="max-w-screen-xl py-16 px-4 md:px-10 lg:px-20 bg-white">
+        <section id="fitur" className="max-w-screen-2xl py-16 px-4 md:px-10 lg:px-20 bg-white">
             <h2 className="relative inline-block text-2xl md:text-3xl font-semibold mb-8 text-black">
                 Fitur MamaSafe
                 <span className="absolute left-0 -bottom-1 w-full h-1 bg-pink-400 rounded-full" />
