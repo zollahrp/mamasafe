@@ -49,7 +49,8 @@ MamaSafe.id merupakan platform web berbasis teknologi cerdas dan empatik yang di
 - Tailwind CSS
 - Zustand
 - Framer Motion
-- AI (integrasi ke API eksternal jika diperlukan)
+- Gemini API
+- Pocketbase
 
 ---
 
@@ -60,8 +61,8 @@ Pastikan kamu sudah menginstall **Node.js** dan package manager seperti **npm**,
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username/mamasafe-web.git
-cd mamasafe-web
+git clone https://github.com/zollahrp/mamasafe.git
+cd mamasafe
 ```
 
 ### 2. Install Dependencies
