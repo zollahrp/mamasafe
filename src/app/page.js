@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
 import Tentang from "@/components/landing/Tentang";
-// import DemoVideo from "@/components/landing/DemoVideo";
+import Pendamping from "@/components/landing/Pendampingan";
 // import Features from "@/components/landing/Features";
 // import Timeline from "@/components/landing/Timeline";
 // import Article from "@/components/landing/Article";
@@ -20,7 +20,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Tentang />
-      {/* <DemoVideo />      */}
+      <Pendamping />
       {/* <Features /> */}
       {/* <Timeline />        */}
       {/* <Article />         */}
