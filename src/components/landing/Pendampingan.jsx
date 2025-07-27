@@ -32,7 +32,7 @@ export default function Pendamping() {
       className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 2xl:px-16 py-16"
     >
       <motion.div
-        className="mb-12"
+        className="mb-0"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut', delay: 0.3 }}
