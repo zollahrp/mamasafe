@@ -7,10 +7,7 @@ import Hero from "@/components/landing/Hero";
 import Navbar from "@/components/landing/Navbar";
 import Tentang from "@/components/landing/Tentang";
 import Pendamping from "@/components/landing/Pendampingan";
-// import Features from "@/components/landing/Features";
-// import Timeline from "@/components/landing/Timeline";
-// import Article from "@/components/landing/Article";
-// import Footer from "@/components/landing/Footer";
+import Fitur from "@/components/landing/Fitur";
 
 // const Video = dynamic(() => import("@/components/landing/DemoVideo"), { ssr: false });
 
@@ -21,9 +18,8 @@ export default function Home() {
       <Hero />
       <Tentang />
       <Pendamping />
-      {/* <Features /> */}
-      {/* <Timeline />        */}
-      {/* <Article />         */}
+      <Fitur />
+
       {/* <Footer /> */}
     </div>
   );
