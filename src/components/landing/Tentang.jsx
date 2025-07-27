@@ -19,15 +19,14 @@ export default function Tentang() {
             </p>
 
             <div className="w-full flex justify-center">
-                <div className="w-full max-w-xl aspect-video rounded-xl overflow-hidden shadow-lg">
-                    <video
-                        controls
-                        poster="/video-thumbnail.jpg"
-                        className="w-full h-full object-cover"
-                    >
-                        <source src="/video-demo.mp4" type="video/mp4" />
-                        Browser kamu tidak mendukung pemutaran video.
-                    </video>
+                <div className="w-full max-w-screen-xl aspect-video rounded-xl overflow-hidden shadow-lg">
+                    <iframe
+                        className="w-full h-full"
+                        src="https://www.youtube.com/embed/lzh33ajVxCE?autoplay=1&mute=1"
+                        title="Demo Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
                 </div>
             </div>
         </section>
