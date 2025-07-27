@@ -9,6 +9,8 @@ import Tentang from "@/components/landing/Tentang";
 import Pendamping from "@/components/landing/Pendampingan";
 import Fitur from "@/components/landing/Fitur";
 
+import Footer from "@/components/landing/Footer";
+
 // const Video = dynamic(() => import("@/components/landing/DemoVideo"), { ssr: false });
 
 export default function Home() {
@@ -20,7 +22,7 @@ export default function Home() {
       <Pendamping />
       <Fitur />
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
