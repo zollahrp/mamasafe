@@ -40,13 +40,13 @@ export default function Navbar() {
 
                 <div className="flex space-x-2">
                     <Link
-                        href="/login"
+                        href="/masuk"
                         className="bg-white text-[#F875AA] px-4 py-1 rounded-md text-sm"
                     >
-                        Login
+                        Masuk
                     </Link>
                     <Link
-                        href="/register"
+                        href="/daftar"
                         className="border border-white text-white px-4 py-1 rounded-md text-sm"
                     >
                         Daftar

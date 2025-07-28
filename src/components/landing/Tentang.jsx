@@ -22,7 +22,7 @@ export default function Tentang() {
                 <div className="w-full max-w-screen-xl aspect-video rounded-xl overflow-hidden shadow-lg">
                     <iframe
                         className="w-full h-full"
-                        src="https://www.youtube.com/embed/lzh33ajVxCE?autoplay=1&mute=1"
+                        // src="https://www.youtube.com/embed/lzh33ajVxCE?autoplay=1&mute=1"
                         title="Demo Video"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
