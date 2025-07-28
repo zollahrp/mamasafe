@@ -3,27 +3,48 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://127.0.0.1:8090');
 
 export default function LoginPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
+        setError("");
 
         if (!email.includes("@") || !email.includes(".")) {
             setError("Email tidak valid");
+            setLoading(false);
             return;
         }
 
         if (password.length < 6) {
             setError("Kata sandi minimal 6 karakter");
+            setLoading(false);
             return;
         }
 
-        setError("");
-        alert("Berhasil masuk!");
+        try {
+            const authData = await pb.collection('users').authWithPassword(email, password);
+            
+            console.log(pb.authStore.isValid);
+            console.log(pb.authStore.token);
+            console.log(pb.authStore.record.id);
+            
+            alert("Berhasil masuk!");
+            // Redirect or update UI as needed
+        } catch (error) {
+            setError("Email atau kata sandi salah");
+            console.error('Login error:', error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -49,8 +70,9 @@ export default function LoginPage() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 required
+                                disabled={loading}
                                 placeholder="Email aktif"
-                                className={`w-full px-4 py-2 border ${error ? "border-red-400" : "border-gray-300"} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400`}
+                                className={`w-full px-4 text-black py-2 border ${error ? "border-red-400" : "border-gray-300"} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400 disabled:opacity-50`}
                             />
                         </div>
 
@@ -61,8 +83,9 @@ export default function LoginPage() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
+                                disabled={loading}
                                 placeholder="********"
-                                className={`w-full px-4 py-2 border ${error ? "border-red-400" : "border-gray-300"} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400`}
+                                className={`w-full px-4 text-black py-2 border ${error ? "border-red-400" : "border-gray-300"} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-pink-400 disabled:opacity-50`}
                             />
                             <div className="mt-1 text-right">
                                 <Link href="/lupa-password" className="text-sm text-pink-500 hover:underline">
@@ -75,9 +98,10 @@ export default function LoginPage() {
 
                         <button
                             type="submit"
-                            className="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-md font-medium transition"
+                            disabled={loading}
+                            className="w-full bg-pink-500 hover:bg-pink-600 disabled:bg-pink-300 text-white py-2 rounded-md font-medium transition"
                         >
-                            Masuk
+                            {loading ? "Memproses..." : "Masuk"}
                         </button>
 
                         <p className="text-sm text-center text-gray-600">
@@ -90,7 +114,8 @@ export default function LoginPage() {
                         <div className="text-center">
                             <button
                                 type="button"
-                                className="w-full border border-gray-300 py-2 rounded-md hover:bg-gray-100 transition flex items-center justify-center gap-2"
+                                disabled={loading}
+                                className="w-full border text-black border-gray-300 py-2 rounded-md hover:bg-gray-100 disabled:opacity-50 transition flex items-center justify-center gap-2"
                             >
                                 <Image
                                     src="/google-icon.png"
