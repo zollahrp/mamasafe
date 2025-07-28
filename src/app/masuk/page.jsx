@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PocketBase from 'pocketbase';
+import Swal from "sweetalert2"; // Import SweetAlert2
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
@@ -36,12 +37,28 @@ export default function LoginPage() {
             console.log(pb.authStore.isValid);
             console.log(pb.authStore.token);
             console.log(pb.authStore.record.id);
-            
-            alert("Berhasil masuk!");
-            // Redirect or update UI as needed
+
+            // Show success alert
+            Swal.fire({
+                icon: "success",
+                title: "Berhasil Masuk!",
+                text: "Anda berhasil masuk ke akun Anda.",
+                confirmButtonColor: "#31B137",
+            }).then(() => {
+                // Redirect to homepage
+                window.location.href = "/";
+            });
         } catch (error) {
             setError("Email atau kata sandi salah");
             console.error('Login error:', error);
+
+            // Show error alert
+            Swal.fire({
+                icon: "error",
+                title: "Gagal Masuk!",
+                text: "Email atau kata sandi salah. Silakan coba lagi.",
+                confirmButtonColor: "#d33",
+            });
         } finally {
             setLoading(false);
         }

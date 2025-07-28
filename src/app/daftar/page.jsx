@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import PocketBase from 'pocketbase';
+import Swal from "sweetalert2";
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
@@ -39,8 +40,13 @@ export default function RegisterPage() {
             // (optional) send email verification
             await pb.collection('users').requestVerification(email);
             
-            alert("Registrasi berhasil! Silakan cek email untuk verifikasi.");
-            
+            // Show success alert
+            Swal.fire({
+                icon: "success",
+                title: "Pendaftaran Berhasil!",
+                text: "Silahkan cek email Anda untuk melakukan verfikasi.",
+                confirmButtonColor: "#31B137",
+            });
             // Reset form
             setName("");
             setEmail("");
@@ -51,7 +57,13 @@ export default function RegisterPage() {
             if (error.data?.email) {
                 setEmailError("Email sudah digunakan");
             } else {
-                alert("Gagal melakukan registrasi. Silakan coba lagi.");
+                // Show error alert
+                Swal.fire({
+                    icon: "error",
+                    title: "Gagal Daftar!",
+                    text: "Gagal melakukan pendaftaran. Silahkan coba lagi nanti.",
+                    confirmButtonColor: "#d33",
+                });
             }
         } finally {
             setIsLoading(false);
